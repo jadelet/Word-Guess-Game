@@ -1,0 +1,23 @@
+
+body {
+  background: black;
+  font-family: 'Kalam', cursive;
+}
+
+navbar, button {
+  font-family: 'Permanent Marker', cursive;
+}
+
+#topwords{
+font-size: 48;
+color:#ffc107;  
+padding-top: 40;
+text-align: left;
+
+
+}
+#bottomwords{
+  font-size: 48;
+  color:#ffc107;  
+  text-align: right;
+  }

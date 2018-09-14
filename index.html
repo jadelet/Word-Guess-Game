@@ -1,1 +1,86 @@
+<script>
+// 1. [Watch the demo](https://youtu.be/W-IJcC4tYFI).
+
+//2. Choose a theme for your game! In the demo, we picked an 80s theme: 80s questions, 80s sound and an 80s aesthetic. You can choose any subject for your theme, though, so be creative!
+
+//3. Use key events to listen for the letters that your players will type.
+
+//4. Display the following on the page: Press any key to get started!
+
+// Wins: (# of times user guessed the word correctly).
+
+   //* If the word is `madonna`, display it like this when the game starts: `_ _ _ _ _ _ _`.
+
+  // * As the user guesses the correct letters, reveal them: `m a d o _  _ a`.
+
+////7. Number of Guesses Remaining: (# of guesses remaining for the user).
+
+//. Letters Already Guessed: (Letters the user has guessed, displayed like `L Z Y H`).
+
+//9. After the user wins/loses the game should automatically choose another word and make the user play it.
+</script> 
+<!-- Lay out HTML Page for supehero hangman: -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Kalam:700|Permanent+Marker" rel="stylesheet">
+  <link href="Assets/style2.css" rel="stylesheet">
+
+  <title>Superhero Word Guess</title>
+
+</head>
+<body>
+  <div class="container">
+
+
+
+<!--this is the end of the container-->
+</div>
+
+<!--This is the footer that says press any key to get started-->
+<div class="container-fluid">
+<div class="row"> 
+  <div class="col-3">
+<!--this is the counter of wins-->
+<button type="button" class="btn btn-primary">
+    HERO POINTS <span class="badge badge-danger">(heroPoints)</span>
+  </button>
+
+
+  </div>
+  <div id=centerPiece class="col-6">
+    <!--put the kapowpicture here-->
+    <div class=row>
+    <div id=topwords> A SUPER</div>
+  
+    <img src="Assets\Images\Voluminous-Art-kapow-1601675_960_720.png" class="img-responsive img-circle justify-content-center algin-content-center"  width=100% height=auto alt="KAPOW!">
+    <div id=bottomwords> WORD GAME</div>
+  </div>
+    <div class=row>
+      <!--this is where the actual word game visual will go-->
+    </div>
+    </div>
+
+    <div class="col-3">
+    <!--this is the counter of guesses remaining-->
+<button type="button" id="guessButton" class="btn btn-dark">
+    Guesses Remaining <span class="badge badge-Warning">(guessRem)</span>
+    <span class="sr-only"></span>
+  </button>
+      </div>
+
+</div>
+    <nav class="navbar navbar-expand-lg fixed-bottom navbar-dark bg-warning justify-content-around">
+      <a class="navbar-brand">Press any key to get started!</a>
+    </nav>
+  </div>
+  
+</body>
+</html>
+
+
 
