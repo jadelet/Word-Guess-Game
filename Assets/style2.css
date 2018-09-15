@@ -1,6 +1,6 @@
 
 body {
-  background: black;
+  background-image:  url(images/bwwallpaper.jpg); 
   font-family: 'Kalam', cursive;
 }
 
@@ -10,7 +10,8 @@ navbar, button {
 
 #topwords{
 font-size: 48;
-color:#ffc107;  
+color:#1355e2; 
+
 padding-top: 40;
 text-align: left;
 
@@ -18,7 +19,8 @@ text-align: left;
 }
 #bottomwords{
   font-size: 48;
-  color:#ffc107;  
+  color:#1355e2; 
+  
   text-align: right;
   padding-bottom: 40
   }
