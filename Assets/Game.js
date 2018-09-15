@@ -55,22 +55,30 @@ var superHeroArray = [
 
 function matchLetter (event) {
   var chosenLetter = event.key;
+  var found = false;
   for (var i = 0; i < letters.length; i++) {
     if (chosenLetter==letters[i]){
       change_ToValue(letters[i]);
+      found = true;
     }
     }
  console.log (chosenLetter);
+ if (!found){
+   guessRem=guessRem-1;
+   console.log (guessRem)
+ }
 } 
 
 
 
 function change_ToValue (revealLtr) {
   var matchingButtons = $("[data-letter='" + revealLtr + "']");
-  console.log(matchingButtons);
+ // console.log(matchingButtons);
   for (var i = 0; i<matchingButtons.length; i++){
    matchingButtons[i].textContent=revealLtr;
     }
+
+  
 
 
 }
@@ -85,7 +93,6 @@ var guessRem = 7;
 // //create function to decrease "guessRem" by 1 every time a wrong guess is made
 
 // if {guessRem=guessRem-1
-
 
 
 
@@ -120,7 +127,7 @@ var guessRem = 7;
  
 // //reset game funcion
 // function resetGame() {
-//   // reset game variables
-//   heroPoints = 0
-//   guessRem = 7
-//   $("#wordGameContainer").empty();
+  // reset game variables
+  // heroPoints = 0
+  // guessRem = 7
+  // $("#wordGameContainer").empty();
