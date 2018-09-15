@@ -51,14 +51,36 @@ var superHeroArray = [
      $("#wordGameContainer").append(letterSlot);
       }
 
-//if a keystroke value matches data-letter anywhere in the document, then fill in that blank with that letter.
-     
-//KEEP SCORE
+//if a keystroke value matches data-letter anywhere in the word then fill in that blank with that letter.
+
+function matchLetter (event) {
+  var chosenLetter = event.key;
+  for (var i = 0; i < letters.length; i++) {
+    if (chosenLetter==letters[i]){
+      change_ToValue(letters[i]);
+    }
+    }
+ console.log (chosenLetter);
+} 
+
+
+
+function change_ToValue (revealLtr) {
+  var matchingButtons = $("[data-letter='" + revealLtr + "']");
+  console.log(matchingButtons);
+  for (var i = 0; i<matchingButtons.length; i++){
+   matchingButtons[i].textContent=revealLtr;
+    }
+
+
+}
+document.onkeyup = matchLetter;     
+// //KEEP SCORE
 // // var to keep score
-// var heroPoints = 0;
+var heroPoints = 0;
 
 // // var to keep track of remaining guesses
-// var guessRem = 7;
+var guessRem = 7;
 
 // //create function to decrease "guessRem" by 1 every time a wrong guess is made
 
