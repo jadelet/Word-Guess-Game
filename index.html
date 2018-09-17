@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Kalam:700|Permanent+Marker" rel="stylesheet">
   <link href="Assets/style2.css" rel="stylesheet">
 
@@ -34,20 +36,31 @@
    <!--this is where the actual game goes, right here, the rest is windowdressing, mostly-->
     <div id="wordGameContainer" class=container-fluid >
             </div>
+
+            <div id = youWon class="alert alert-warning alert-dismissible fade show" role="alert" style= "display:none">
+                <strong>Holy good guesses, Batman!</strong> Now, with great power comes great responsibility. Play again, human.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
       </div>
  
         <div id=rigthbar class="col-3">
     <!--this is the counter of guesses remaining-->
 <button type="button" id="guessButton" class="btn btn-success">
-    Guesses Remaining <span class="bgfadge badge-Warning" id="guessRmHTML"></span>
+    Guesses Remaining <span class="badge badge-warning" id="guessRmHTML"></span>
     <span class="sr-only"></span>
   </button>
       </div>
     </div>
 </div>
     <nav class="navbar navbar-expand-lg fixed-bottom navbar-dark bg-warning justify-content-around">
-      <a class="navbar-brand">Press any key to get started!</a>
-    </nav>
+        <div class="container-fluid">
+            
+            <button id = start class="btn btn-danger navbar-btn" onclick= "chooseWord(superHeroArray)" >Press this button to get started</button>
+
+          </div>
+       </nav>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="Assets/Game.js"> </script>

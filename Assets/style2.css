@@ -10,17 +10,29 @@ navbar, button {
 
 #topwords{
 font-size: 48;
-color:#1355e2; 
-
-padding-top: 40;
-text-align: left;
+color:blue; 
+background-color:yellow; 
+text-align: left
 
 
 }
 #bottomwords{
   font-size: 48;
-  color:#1355e2; 
+  color:blue;
+  background-color:yellow;
   
   text-align: right;
-  padding-bottom: 40
+  padding-bottom: 40;
+  }
+
+  #letterslot, #youWon {
+    background-color: yellow;
+    color: green;
+    font-size: 64; 
+    justify-content: center;
+      }
+  
+  #wordGameContainer {
+    margin-top: 80px;
+    margin-bottom: 80px
   }

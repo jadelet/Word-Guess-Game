@@ -3,7 +3,18 @@ var superHeroArray = [
 "Ant-Man",  "Aquaman", "The Atom", "The Avengers", "Batgirl", "Batman", "Batwoman", "Black Canary", "Black Panther", "Captain America", "Catwoman", "Conan the Barbarian", "Daredevil", "The Defenders", "Doc Savage", "Doctor Strange", "Elektra", "Fantastic Four", "Ghost Rider", "Green Arrow", "Green Lantern", "Guardians of the Galaxy", "Hawkeye", "Hellboy", "Incredible Hulk", "Iron Fist", "Iron Man", "Marvelman", "Robin", "The Rocketeer", "The Shadow", "Spider-Man", "Sub-Mariner", "Supergirl", "Superman", "Teenage Mutant Ninja Turtles", "The Wasp", "Watchmen", "Wolverine", "Wonder Woman", "X-Men", "Zatanna", "Zatara"
 ];
 
-//var to hold html/dom elements for reference
+
+// //KEEP SCORE
+// // var to keep score
+var heroPoints = 0;
+
+// // var to keep track of remaining guesses
+var guessRem = 7;
+
+// var to show acceptable keys
+
+document.getElementById("guessRmHTML").innerHTML = guessRem
+document.getElementById("heroPointsHTML").innerHTML = heroPoints
 
 
 //CREATE GAME BOARD
@@ -17,18 +28,19 @@ var superHeroArray = [
 //code to split the word selected from array into a sub-array 
 
     var letters=chooseWord();
+    var matchableLetters=letters.length
 
     console.log (letters);
 
           // Split in characters
 
-//create an underscore for each value except that space shall not have an underscore but just be a space and shall be ignored.
+//create an underscore for each value except that space shall not have an underscore but just be a space and shall be ignored. Hyphens get automatically placed like wheel of fortune.
 
       // 1.A  for-loop to iterate through the letters array.
       for (var i = 0; i < letters.length; i++) {
 
      
-        // 2. Create a variable named "letterSlot" 
+        // 2. Create a variable named "letterSlot" (Just like fridge game)
         var letterSlot = $("<button>");
 
        
@@ -39,9 +51,11 @@ var superHeroArray = [
         // 5. Then give each "letterSlots" a text equal to "letters[i]".
         if (letters[i]=== " ") {
        letterSlot.text("  ")
+       matchableLetters=matchableLetters + 1
         }
         else if(letters[i]=== "-") {
           letterSlot.text("-")
+          matchableLetters=matchableLetters + 1
         }
         else {
           letterSlot.text("_")
@@ -54,49 +68,56 @@ var superHeroArray = [
 //if a keystroke value matches data-letter anywhere in the word then fill in that blank with that letter.
 
 function matchLetter (event) {
+  var acceptableKeys = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",];
+// var wrongKey = acceptableKeys.includes(chosenLetter)
   var chosenLetter = event.key;
-  var found = false;
+   var found = false;
   for (var i = 0; i < letters.length; i++) {
-    if (chosenLetter==letters[i]){
+    if (chosenLetter.toUpperCase()==letters[i].toUpperCase()){
       change_ToValue(letters[i]);
       found = true;
     }
     }
  console.log (chosenLetter);
- if (!found){
-   guessRem=guessRem-1;
+ if (!found && acceptableKeys.includes(chosenLetter.toUpperCase())){
+  //
+    guessRem=guessRem-1;
    console.log (guessRem)
+   document.getElementById("guessRmHTML").innerHTML = guessRem
  }
+ var alphaKey = acceptableKeys.includes(chosenLetter.toUpperCase());
+if (!alphaKey){
+alert("This is not Martian--you only need A-Z!")
+}
+// var blank =  letterSlot.text("_")
+
+  //show Bootstrap alert called youWon  
+
+// }
+// if (!blank) {resetGame}
 } 
 
 
-
+// //create function to decrease "guessRem" by 1 every time a wrong guess is made
 function change_ToValue (revealLtr) {
   var matchingButtons = $("[data-letter='" + revealLtr + "']");
- // console.log(matchingButtons);
+ console.log(matchingButtons);
   for (var i = 0; i<matchingButtons.length; i++){
    matchingButtons[i].textContent=revealLtr;
+  // if revealLtr.data-lettr !=== _ {
+  //    heroPoints= heroPoints + 1
+  //    console.log (heroPoints)
+  //    document.getElementById("heroPointsHTML").innerHTML = heroPoints
+  // }
+   }
     }
 
-  
 
-
-}
-document.onkeyup = matchLetter;     
-// //KEEP SCORE
-// // var to keep score
-var heroPoints = 0;
-
-// // var to keep track of remaining guesses
-var guessRem = 7;
-
-// //create function to decrease "guessRem" by 1 every time a wrong guess is made
-
-// if {guessRem=guessRem-1
+document.onkeyup = matchLetter   
 
 
 
-// }
+
 // // function to calculate score
 // function if full word is matchMedia, calcScore(heropoints++)
 // //print score function
@@ -125,9 +146,9 @@ var guessRem = 7;
 
 // //randomly choose array value
  
-// //reset game funcion
+//reset game funcion
 // function resetGame() {
-  // reset game variables
-  // heroPoints = 0
-  // guessRem = 7
-  // $("#wordGameContainer").empty();
+//   // reset game variables
+//   heroPoints = 0
+//   guessRem = 7
+//   $("#wordGameContainer").empty();
